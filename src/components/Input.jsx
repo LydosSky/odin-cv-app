@@ -1,3 +1,8 @@
-export default function Input({ type }) {
-  return <input className="input-type" type={type} />;
+export default function Input({ value, type = "text" }) {
+  return (
+    <div>
+      <label htmlFor={value}>{value}</label>
+      <input id={value} className="input-type" type={type} />
+    </div>
+  );
 }

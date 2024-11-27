@@ -22,7 +22,6 @@ export default {
       fieldOfStudy: "Artificial Intelligence",
       institution: "Institute of Advanced Studies",
       startDate: "2021-09-01",
-
       endDate: null, // Ongoing
       grade: null,
     },

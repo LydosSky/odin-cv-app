@@ -1,13 +1,15 @@
-import Card from "./components/Card";
+import Forms from "./components/Forms";
+import Resume from "./components/Resume";
+import "./styles/app.css";
 
 function App() {
   return (
-    <div>
-      <Card cardName="Personal Info"></Card>
-      <Card cardName="Educational Info"></Card>
-      <Card cardName="Work Experience"></Card>
-    </div>
+    <>
+      <Forms />
+      <Resume />
+    </>
   );
 }
+
 
 export default App;

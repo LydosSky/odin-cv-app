@@ -3,7 +3,7 @@ import Form from "./Form";
 export default function Card({ cardName, children }) {
   return (
     <div className="card">
-      <h1>{cardName}</h1>
+      <h2>{cardName}</h2>
       <Form>{children}</Form>
     </div>
   );

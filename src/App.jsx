@@ -4,12 +4,21 @@ import Resume from "./components/Resume";
 import "./styles/app.css";
 
 function App() {
-  const [personalInfo, setPersonalInfo] = useState({});
+  const [state, setState] = useState({
+    personalInfo: null,
+    educationalInfo: [],
+    workExperience: [],
+  });
 
   return (
     <>
-      <Forms personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} />
-      <Resume />
+      <Forms
+        educationalInfo={state.educationalInfo}
+        personalInfo={state.personalInfo}
+        workExperience={state.workExperience}
+        setState={setState}
+      />
+      <Resume state={state} />
     </>
   );
 }

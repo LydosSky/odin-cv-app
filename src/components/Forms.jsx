@@ -5,7 +5,14 @@ import user from "../utils/formfields";
 
 export default function Forms() {
   function inputMapper(field) {
-    return <Input label={field.label} type={field.type} />;
+    return (
+      <Input
+        key={crypto.randomUUID()}
+        label={field.label}
+        type={field.type}
+        required={field.required}
+      />
+    );
   }
   return (
     <div className="forms-container">

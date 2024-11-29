@@ -1,7 +1,7 @@
 import Button from "./Button";
 import "../styles/form.css";
 
-export default function Form({ state, setState, visibility, children }) {
+export default function Form({ name, setState, visibility, children }) {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -10,7 +10,31 @@ export default function Form({ state, setState, visibility, children }) {
       stateNow[key] = value;
     });
 
-    setState({ ...state, ...stateNow });
+    switch (name) {
+      case "Personal Info":
+        setState((prevState) => ({
+          workExperience: prevState.workExperience,
+          educationalInfo: prevState.educationalInfo,
+          personalInfo: { ...stateNow },
+        }));
+        return;
+      case "Educational Info":
+        setState((prevState) => ({
+          personalInfo: prevState.personalInfo,
+          educationalInfo: [...prevState.educationalInfo, stateNow],
+          workExperience: prevState.workExperience,
+        }));
+        return;
+      case "Work Experience":
+        setState((prevState) => ({
+          personalInfo: prevState.personalInfo,
+          educationalInfo: prevState.educationalInfo,
+          workExperience: [...prevState.workExperience, stateNow],
+        }));
+        return;
+      default:
+        return;
+    }
   }
 
   return (

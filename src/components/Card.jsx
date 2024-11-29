@@ -20,6 +20,7 @@ export default function Card({ state, setState, cardName, children }) {
       </div>
 
       <Form
+        name={cardName}
         state={state}
         setState={setState}
         visibility={isHidden ? null : "hidden"}

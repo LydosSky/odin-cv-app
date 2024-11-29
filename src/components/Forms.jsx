@@ -3,7 +3,7 @@ import Card from "./Card";
 import Input from "./Input";
 import user from "../utils/formfields";
 
-export default function Forms() {
+export default function Forms({ personalInfo, setPersonalInfo }) {
   function inputMapper(field) {
     return (
       <Input
@@ -14,9 +14,16 @@ export default function Forms() {
       />
     );
   }
+
   return (
     <div className="forms-container">
-      <Card cardName="Personal Info">{user.personalInfo.map(inputMapper)}</Card>
+      <Card
+        state={personalInfo}
+        setState={setPersonalInfo}
+        cardName="Personal Info"
+      >
+        {user.personalInfo.map(inputMapper)}
+      </Card>
       <Card cardName="Educational Info">
         {user.educationalInfo.map(inputMapper)}
       </Card>

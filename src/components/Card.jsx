@@ -3,11 +3,13 @@ import "../styles/card.css";
 import { MdExpand } from "react-icons/md";
 import { useState } from "react";
 
-export default function Card({ cardName, children }) {
-  const [isHidden, sethidden] = useState("false");
+export default function Card({ state, setState, cardName, children }) {
+  const [isHidden, setHidden] = useState("false");
+
   function handleToggle() {
-    sethidden(!isHidden);
+    setHidden(!isHidden);
   }
+
   return (
     <div className="card">
       <div className="card-header">
@@ -17,7 +19,13 @@ export default function Card({ cardName, children }) {
         </button>
       </div>
 
-      <Form visibility={isHidden ? null : "hidden"}>{children}</Form>
+      <Form
+        state={state}
+        setState={setState}
+        visibility={isHidden ? null : "hidden"}
+      >
+        {children}
+      </Form>
     </div>
   );
 }

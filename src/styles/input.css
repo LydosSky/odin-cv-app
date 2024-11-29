@@ -7,3 +7,7 @@
 .input-field input {
   width: 70%;
 }
+
+.input-field label {
+  text-transform: capitalize;
+}

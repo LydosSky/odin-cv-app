@@ -1,5 +1,11 @@
-import Input from "./Input";
+import Button from "./Button";
+import "../styles/form.css";
 
-export default function Form({ children }) {
-  return <form>{children}</form>;
+export default function Form({ visibility, children }) {
+  return (
+    <form className={visibility}>
+      {children}
+      <Button text={"Submit"} />
+    </form>
+  );
 }

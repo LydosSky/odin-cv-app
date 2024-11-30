@@ -10,31 +10,30 @@ export default function Form({ name, setState, visibility, children }) {
       stateNow[key] = value;
     });
 
-    switch (name) {
-      case "Personal Info":
-        setState((prevState) => ({
-          workExperience: prevState.workExperience,
-          educationalInfo: prevState.educationalInfo,
-          personalInfo: { ...stateNow },
-        }));
-        return;
-      case "Educational Info":
-        setState((prevState) => ({
-          personalInfo: prevState.personalInfo,
-          educationalInfo: [...prevState.educationalInfo, stateNow],
-          workExperience: prevState.workExperience,
-        }));
-        return;
-      case "Work Experience":
-        setState((prevState) => ({
-          personalInfo: prevState.personalInfo,
-          educationalInfo: prevState.educationalInfo,
-          workExperience: [...prevState.workExperience, stateNow],
-        }));
-        return;
-      default:
-        return;
-    }
+    setState((prevState) => {
+      switch (name) {
+        case "Personal Info":
+          return {
+            workExperience: prevState.workExperience,
+            educationalInfo: prevState.educationalInfo,
+            personalInfo: { ...stateNow },
+          };
+        case "Educational Info":
+          return {
+            personalInfo: prevState.personalInfo,
+            educationalInfo: [...prevState.educationalInfo, stateNow],
+            workExperience: prevState.workExperience,
+          };
+        case "Work Experience":
+          return {
+            personalInfo: prevState.personalInfo,
+            educationalInfo: prevState.educationalInfo,
+            workExperience: [...prevState.workExperience, stateNow],
+          };
+        default:
+          return;
+      }
+    });
   }
 
   return (

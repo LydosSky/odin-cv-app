@@ -1,7 +1,8 @@
-import { useState } from "react";
-import Forms from "./components/Forms";
-import Resume from "./components/Resume";
-import "./styles/app.css";
+import { useState } from 'react';
+import Forms from './components/Forms';
+import Resume from './components/Resume';
+import './styles/app.css';
+import resume from './utils/data';
 
 function App() {
   const [state, setState] = useState({
@@ -18,7 +19,7 @@ function App() {
         workExperience={state.workExperience}
         setState={setState}
       />
-      <Resume state={state} />
+      <Resume state={resume} />
     </>
   );
 }

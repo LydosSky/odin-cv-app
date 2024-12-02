@@ -20,7 +20,8 @@ export default function Forms({
         formName={formName}
         statePart={statePart}
         label={field.label}
-        type={field.required}
+        type={field.type}
+        required={field.required}
         selectedAny={
           formName === "Educational Info" ? selectedEdu : selectedWork
         }

@@ -21,14 +21,28 @@ export default function Form({ name, setState, visibility, children }) {
         case "Educational Info":
           return {
             personalInfo: prevState.personalInfo,
-            educationalInfo: [...prevState.educationalInfo, stateNow],
+            educationalInfo: [
+              ...prevState.educationalInfo.filter(
+                (ed) =>
+                  ed.degree !== stateNow.degree &&
+                  ed.institution !== stateNow.institution,
+              ),
+              stateNow,
+            ],
             workExperience: prevState.workExperience,
           };
         case "Work Experience":
           return {
             personalInfo: prevState.personalInfo,
             educationalInfo: prevState.educationalInfo,
-            workExperience: [...prevState.workExperience, stateNow],
+            workExperience: [
+              ...prevState.workExperience.filter(
+                (work) =>
+                  work.jobtitle !== stateNow.jobtitle &&
+                  work.companyname !== stateNow.companyname,
+              ),
+              stateNow,
+            ],
           };
         default:
           return;

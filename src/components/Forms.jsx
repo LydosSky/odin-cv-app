@@ -9,9 +9,10 @@ export default function Forms({
   workExperience,
   setState,
 }) {
-  function inputMapper(field) {
+  function inputMapper(field, statePart) {
     return (
       <Input
+        statePart={statePart}
         key={crypto.randomUUID()}
         label={field.label}
         type={field.type}
@@ -23,21 +24,23 @@ export default function Forms({
   return (
     <div className="forms-container">
       <Card state={personalInfo} setState={setState} cardName="Personal Info">
-        {user.personalInfo.map(inputMapper)}
+        {user.personalInfo.map((field) => inputMapper(field, personalInfo))}
       </Card>
       <Card
         state={educationalInfo}
         setState={setState}
         cardName="Educational Info"
       >
-        {user.educationalInfo.map(inputMapper)}
+        {user.educationalInfo.map((field) =>
+          inputMapper(field, educationalInfo),
+        )}
       </Card>
       <Card
         state={workExperience}
         setState={setState}
         cardName="Work Experience"
       >
-        {user.workExperience.map(inputMapper)}
+        {user.workExperience.map((field) => inputMapper(field, workExperience))}
       </Card>
     </div>
   );

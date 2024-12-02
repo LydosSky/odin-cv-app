@@ -3,7 +3,7 @@ import "../styles/card.css";
 import { MdExpand } from "react-icons/md";
 import { useState } from "react";
 
-export default function Card({ state, setState, cardName, children }) {
+export default function Card({ setState, cardName, children }) {
   const [isHidden, setHidden] = useState("false");
 
   function handleToggle() {
@@ -21,7 +21,6 @@ export default function Card({ state, setState, cardName, children }) {
 
       <Form
         name={cardName}
-        state={state}
         setState={setState}
         visibility={isHidden ? null : "hidden"}
       >

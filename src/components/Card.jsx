@@ -4,9 +4,7 @@ import { MdExpand, MdOutlineEdit } from "react-icons/md";
 import { useState } from "react";
 
 export default function Card({
-  selectedWork,
   setSelectedWork,
-  selectedEdu,
   setSelectedEdu,
   state,
   setState,
@@ -23,10 +21,10 @@ export default function Card({
     switch (cardName) {
       case "Educational Info":
         setSelectedEdu(idx);
-        return
+        return;
       case "Work Experience":
         setSelectedWork(idx);
-        return
+        return;
     }
   }
 
@@ -64,7 +62,7 @@ export default function Card({
           <MdExpand className="card-icon" />
         </button>
       </div>
-      {state.length > 0 && (
+      {cardName !== "Personal Info" && state.length > 0 && (
         <div className="card-entered">{displayEntered()}</div>
       )}
       <Form

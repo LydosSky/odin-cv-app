@@ -10,19 +10,21 @@ export default function Input({
   required,
 }) {
   const name = label.split(" ").join("");
-  function getInitialState() {
+
+  function getState() {
     switch (formName) {
       case "Educational Info":
-        return statePart[selectedAny][name];
+        if (statePart.length > 0) return statePart[selectedAny][name];
       case "Work Experience":
-        return statePart[selectedAny][name];
+        if (statePart.length > 0) return statePart[selectedAny][name];
+      case "Personal Info":
+        if (statePart !== null) return statePart[name];
       default:
-        return statePart[name];
+        return "";
     }
   }
 
-  const initialValue = getInitialState();
-  const [value, setValue] = useState(initialValue);
+  const [value, setValue] = useState(getState());
 
   function handleChange(event) {
     setValue(event.target.value);
